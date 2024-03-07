@@ -5,7 +5,7 @@
 
 /**************************** GENERAL STYLES ****************************/
 
-html{
+*{
     box-sizing: border-box;
 }
 
@@ -25,19 +25,18 @@ body{
     justify-content: center;
 }
 
-
-.container{
+.quote-container{
     width: auto;
     max-width: 900px;
     padding: 20px 30px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 10px 10px rgba(2, 2, 2, 0.2);;
+    box-shadow: 0 10px 10px 10px rgba(2, 2, 2, 0.2);
 }
 
 
 
-#container{}
+#quote-container{}
 
 
 /**************************** QUOTE ****************************/
@@ -52,6 +51,7 @@ body{
 
 .fa-quote-left{
     font-size: 4rem;
+    color: #ac1cfc;
 }
 
 
@@ -74,14 +74,57 @@ body{
 
 /**************************** BUTTONS ****************************/
 
-.button-container{}
+.button-container{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #333;
+    outline: none;
+    padding: 0.5rem 1.8rem;
+    box-shadow: 0.12rem 0.15rem rgba(121, 121, 121, 0.7);
+
+}
+
+button:hover{
+    box-shadow: 0.12rem 0.15rem rgba(127, 17, 224, 0.2);
+    filter: drop-shadow(3px 3px 7px #ac1cfc);
+
+}
+
+button:active{
+    transform: translate(0, 0.3rem);
+    box-shadow: 0.12rem 0.15rem rgba(127, 17, 224, 0.7);
+
+    filter: none;
+
+}
+
+
+
 .X{}
 #X{}
 .fab fa-x-twitter{}
 .new-quote{}
 
 /**************************** MEDIA QUERIES ****************************/
+@media  screen and (max-width: 1000px) {
+    .quote-container{
+        margin: auto 10px;
+    }
 
+    .quote-text{
+        font-size: 2.5rem;
+    }
+}
 
 
 
