@@ -3,20 +3,28 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const xButton = document.getElementById('X');
 const newQuoteBtn = document.getElementById('new-quote');
+const loader = document.getElementById('loader');
+
+
+// Show Loading
+function loading(){
+    loader.hidden = false;
+    quoteContainer.hidden = true;
+}
+
+// Hide Loading
+function loadingComplete(){
+    quoteContainer.hidden = false;
+    loader.hidden = true;
+}
+
 
 // Local Quotes
 // Show New Quote
 function newQuote(){
+    loading();
     // Pick a random quote from localQuotes array
     const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-
-    // Check Quote length to determine styling
-    if (quote.text.length > 120){
-        quoteText.classList.add('long-quote');
-    }else{
-        quoteText.classList.remove('long-quote');
-    }
-    quoteText.textContent = quote.text;
 
     //Replace Author with 'Unknown' if Author field is blank
     if (!quote.author){
@@ -24,8 +32,19 @@ function newQuote(){
     }else{
         authorText.textContent = quote.author;
     }
+
+    // Check Quote length to determine styling
+    if (quote.text.length > 120){
+        quoteText.classList.add('long-quote');
+    }else{
+        quoteText.classList.remove('long-quote');
+    }
+    // Set Quote, Hide Loader
+    quoteText.textContent = quote.text;
+    loadingComplete();
 }
 newQuote();
+
 
 
 // Tweet / X Quote
